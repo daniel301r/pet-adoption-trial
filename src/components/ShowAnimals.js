@@ -30,22 +30,22 @@ class ShowAnimals extends Component {
       // ---- SINGLE ANIMAL ----
       // list all animals
       // returns 20 animals
-      // client.animal.search()
-      //   .then(res => {
-      //       // Do something with `response.data.animals`
-      //       console.log(res)
-      //   })
-      //   .catch(err => {
-      //       // Handle the error
-      //       console.log(err)
-      //   });
+      client.animal.search({type: "Scales, Fins & Other"})
+        .then(res => {
+            // Do something with `response.data.animals`
+            console.log(res)
+        })
+        .catch(err => {
+            // Handle the error
+            console.log(err)
+        });
 
         // // - you can add in search parameters
-        client.animal.search({type: "Dog", size: "small", gender: "male", age: "adult", page: 2, limit: 100})
-          .then(resp => {
-            // Do something with resp.data.animals
-            console.log('small dog', resp)
-          });
+        // client.animal.search({type: "Dog", size: "small", gender: "male", age: "adult", page: 2, limit: 100})
+        //   .then(resp => {
+        //     // Do something with resp.data.animals
+        //     console.log('small dog', resp)
+        //   });
 
           // client.animal.search({type: "Dog"})
           // .then(resp => {
