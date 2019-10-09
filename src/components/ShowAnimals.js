@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 
-import { Client } from "@petfinder/petfinder-js";
-
-const client = new Client({
-  apiKey: "gym7fcjyplnoZ2Vid2YV7hL9Qve3mp1rvwJfKzSVcokuYUds7W", 
-  secret: "xfiEVqKi58j51pM0Y1aEpSU9dSn7iyU1McDAyab5",
-  // token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImI5ZTk2ZTQzOGY3ZWVmMDA0YzQyYTg2ZTQxMzg1Y2Q1M2IwNTIwMzE5MWZhMDFiYzkwYjU4YzIwNGQwZDNiY2EyNTE0ZGNhZmMwMzhiY2I5In0.eyJhdWQiOiJneW03ZmNqeXBsbm9aMlZpZDJZVjdoTDlRdmUzbXAxcnZ3SmZLelNWY29rdVlVZHM3VyIsImp0aSI6ImI5ZTk2ZTQzOGY3ZWVmMDA0YzQyYTg2ZTQxMzg1Y2Q1M2IwNTIwMzE5MWZhMDFiYzkwYjU4YzIwNGQwZDNiY2EyNTE0ZGNhZmMwMzhiY2I5IiwiaWF0IjoxNTcwMjg3Nzg4LCJuYmYiOjE1NzAyODc3ODgsImV4cCI6MTU3MDI5MTM4OCwic3ViIjoiIiwic2NvcGVzIjpbXX0.YmzeVLxmkKKYeFcWn8FmOiqQ7szq00nmOe-DB_zX4NFCzLtmVi2ycLA7uI4NnQuHTC2Mzq9U4uCgViX_bm0frY757k70QGbpVoHxZBfR6j6AdAsqVj0XjYmF-G5z0CCRjDbyNcAfGUzOLwv6_fu-V3CF3_raF-aSj8otA3cW6LRV9c_H8E3BEV5Pj1nUSVuXIrOLXAYwkNVG_NYYeYF2gQEjvLvyJ_BwC3NpHTzyYmG6UtCYscPyy4My2jl-NVtjj_lejYnm6mdO0Q-FmV4GAIQ-Fa2zMGtPTHlWiQRVC1UhopoJx2hK_t4_6PhMcqgMlf7OpmIBRueLBAz5F8l1Hw"
-});
 
 // client.authenticate('eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImI5ZTk2ZTQzOGY3ZWVmMDA0YzQyYTg2ZTQxMzg1Y2Q1M2IwNTIwMzE5MWZhMDFiYzkwYjU4YzIwNGQwZDNiY2EyNTE0ZGNhZmMwMzhiY2I5In0.eyJhdWQiOiJneW03ZmNqeXBsbm9aMlZpZDJZVjdoTDlRdmUzbXAxcnZ3SmZLelNWY29rdVlVZHM3VyIsImp0aSI6ImI5ZTk2ZTQzOGY3ZWVmMDA0YzQyYTg2ZTQxMzg1Y2Q1M2IwNTIwMzE5MWZhMDFiYzkwYjU4YzIwNGQwZDNiY2EyNTE0ZGNhZmMwMzhiY2I5IiwiaWF0IjoxNTcwMjg3Nzg4LCJuYmYiOjE1NzAyODc3ODgsImV4cCI6MTU3MDI5MTM4OCwic3ViIjoiIiwic2NvcGVzIjpbXX0.YmzeVLxmkKKYeFcWn8FmOiqQ7szq00nmOe-DB_zX4NFCzLtmVi2ycLA7uI4NnQuHTC2Mzq9U4uCgViX_bm0frY757k70QGbpVoHxZBfR6j6AdAsqVj0XjYmF-G5z0CCRjDbyNcAfGUzOLwv6_fu-V3CF3_raF-aSj8otA3cW6LRV9c_H8E3BEV5Pj1nUSVuXIrOLXAYwkNVG_NYYeYF2gQEjvLvyJ_BwC3NpHTzyYmG6UtCYscPyy4My2jl-NVtjj_lejYnm6mdO0Q-FmV4GAIQ-Fa2zMGtPTHlWiQRVC1UhopoJx2hK_t4_6PhMcqgMlf7OpmIBRueLBAz5F8l1Hw')
 
-  // console.log(client.http.get('/animals').then(res => { console.log(res) }));
+// console.log(client.http.get('/animals').then(res => { console.log(res) }));
 
 // // need to do this first to get the token then authenticate it after to use http
 //   client.authenticate()
@@ -30,15 +23,15 @@ class ShowAnimals extends Component {
       // ---- SINGLE ANIMAL ----
       // list all animals
       // returns 20 animals
-      client.animal.search({type: "Scales, Fins & Other"})
-        .then(res => {
-            // Do something with `response.data.animals`
-            console.log(res)
-        })
-        .catch(err => {
-            // Handle the error
-            console.log(err)
-        });
+      // client.animal.search({type: "Small & Furry"})
+      //   .then(res => {
+      //       // Do something with `response.data.animals`
+      //       console.log(res)
+      //   })
+      //   .catch(err => {
+      //       // Handle the error
+      //       console.log(err)
+      //   });
 
         // // - you can add in search parameters
         // client.animal.search({type: "Dog", size: "small", gender: "male", age: "adult", page: 2, limit: 100})

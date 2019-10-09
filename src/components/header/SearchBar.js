@@ -5,7 +5,7 @@ const SearchBar = ({ onSearchChange }) => {
     <div className='searchBar'>
       <input
         type='search'
-        placeholder='Search animals...'
+        placeholder='Search animal species...'
         onChange={onSearchChange}
       />
     </div>
