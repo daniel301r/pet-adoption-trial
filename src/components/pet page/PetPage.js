@@ -8,8 +8,11 @@ import Filters from './Filters';
 import ShowAnimals from '../ShowAnimals';
 
 class PetPage extends Component {
+    
     render() {
-        console.log(this.props)
+        console.log(this.props.isPending)
+        console.log(this.props.animals)
+        console.log(this.props.error)
         return (
             <div>
                 <InfoBar />
@@ -22,10 +25,9 @@ class PetPage extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     const { animal } = ownProps.match.params;
-    console.log(animal)
     return {
         animal,
-        searchTerm: state.searchAnimals.searchTerm,
+        animalQuery: state.searchAnimals.animalQuery,
         isPending: state.searchAnimals.isPending,
         animals: state.searchAnimals.animals,
         error: state.searchAnimals.error

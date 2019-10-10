@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import SearchBar from './SearchBar';
+
+import { updateAnimalQuery, requestAnimals } from '../../actions/actions';
 
 class Header extends Component {
 
@@ -32,18 +35,41 @@ class Header extends Component {
                     </div>
                 </section>
                 <ul className={this.state.isExpanded ? "species-menu-expanded" : "species-menu"}>
-                    <li><Link to="/petpage/dog" >Dog</Link></li>
-                    <li><Link to="/petpage/cat">Cat</Link></li>
-                    <li><Link to="/petpage/rabbit">Rabbit</Link></li>
-                    <li><Link to="/petpage/small-fury">Small & Furry</Link></li>
-                    <li><Link to="/petpage/horse">Horse</Link></li>
-                    <li><Link to="/petpage/bird">Bird</Link></li>
-                    <li><Link to="/petpage/scales-fins-other">Scales, Fins & Other</Link></li>
-                    <li><Link to="/petpage/barnyard">Barnyard</Link></li>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Dog'})}>
+                        <Link to="/petpage">Dog</Link>
+                    </li>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Cat'})}>
+                        <Link to="/petpage">Cat</Link>
+                    </li>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Rabbit'})}>
+                        <Link to="/petpage">Rabbit</Link>
+                    </li>
+                    <li>
+                        <Link to="/petpage">Small & Furry</Link>
+                    </li>
+                    <li>
+                        <Link to="/petpage">Horse</Link>
+                    </li>
+                    <li>
+                        <Link to="/petpage">Bird</Link>
+                    </li>
+                    <li>
+                        <Link to="/petpage">Scales, Fins & Other</Link>
+                    </li>
+                    <li>
+                        <Link to="/petpage">Barnyard</Link>
+                    </li>
                 </ul>
             </div>
         )
     }
 }
 
-export default Header;
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        onUpdateAnimalQuery: (query, calledFrom) => dispatch(updateAnimalQuery(query, calledFrom)),
+        onRequestAnimals: (query) => dispatch(requestAnimals(query))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Header);
