@@ -21,6 +21,7 @@ const searchAnimalsState = {
     animalQuery: {},
     isPending: false,
     animals: [],
+    otherData: {},
     error: ''
 }
 
@@ -33,7 +34,7 @@ export const searchAnimals = (state=searchAnimalsState, action) => {
             return {...state, isPending: true}
         case REQUEST_ANIMALS_SUCCESS:
             console.log(action.payload)
-            return {...state, animals: action.payload, isPending: false}
+            return {...state, animals: action.payload.data.animals, otherData: action.payload, isPending: false}
         case REQUEST_ANIMALS_FAILED: 
             return {...state, error: action.payload, isPending: false}
         default:

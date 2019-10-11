@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { requestAnimals } from '../actions/actions';
 
 class SplashPage extends Component {
 
@@ -14,8 +17,12 @@ class SplashPage extends Component {
                     </div>
                     <div className="quick-search">
                         <div>Quick Search<i className="far fa-arrow-alt-circle-right"></i></div>
-                        <div><Link to="/petpage/Dog"><i className="fas fa-dog"></i>Find a dog</Link></div>
-                        <div><Link to="/petpage/Cat"><i className="fas fa-cat"></i>Find a cat</Link></div>
+                        <div onClick={() => this.props.onRequestAnimals({type: 'Dog'})}>
+                            <Link to="/petpage/"><i className="fas fa-dog"></i>Find a dog</Link>
+                        </div>
+                        <div onClick={() => this.props.onRequestAnimals({type: 'Cat'})}>
+                            <Link to="/petpage/"><i className="fas fa-cat"></i>Find a cat</Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -24,4 +31,10 @@ class SplashPage extends Component {
     }
 }
 
-export default SplashPage;
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        onRequestAnimals: (query) => dispatch(requestAnimals(query))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SplashPage);

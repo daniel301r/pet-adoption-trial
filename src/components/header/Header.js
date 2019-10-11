@@ -44,19 +44,19 @@ class Header extends Component {
                     <li onClick={() => this.props.onRequestAnimals({type: 'Rabbit'})}>
                         <Link to="/petpage">Rabbit</Link>
                     </li>
-                    <li>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Small & Furry'})}>
                         <Link to="/petpage">Small & Furry</Link>
                     </li>
-                    <li>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Horse'})}>
                         <Link to="/petpage">Horse</Link>
                     </li>
-                    <li>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Bird'})}>
                         <Link to="/petpage">Bird</Link>
                     </li>
-                    <li>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Scales, Fins & Other'})}>
                         <Link to="/petpage">Scales, Fins & Other</Link>
                     </li>
-                    <li>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Barnyard'})}>
                         <Link to="/petpage">Barnyard</Link>
                     </li>
                 </ul>
