@@ -1,9 +1,10 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -20,6 +21,10 @@ a {
   text-decoration: none;
   /* color: initial; */
   color: inherit;
+}
+
+ul {
+  list-style: none;
 }
 
 /* Header */
@@ -53,13 +58,11 @@ a {
   width: 100%;
   list-style: none;
   background-color: aquamarine;
-  margin: 0;
   padding: 1rem;
 }
 
 .sign-in-buttons {
   list-style: none;
-  padding: 0;
   display: flex;
 }
 
@@ -77,10 +80,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.splash-front h1 {
-  margin: 0;
 }
 
 .quick-search {
@@ -116,8 +115,49 @@ a {
   display: flex;
 }
 
-.filters {
+.filters-container {
   width: 25%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-container > * {
+  margin: 0.3rem 0;
+}
+
+.filter-container button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem;
+}
+
+.filter-options {
+  display: none;
+  
+}
+
+.filter-options-expanded li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem;
+}
+
+.filter-options-expanded {
+  display: flex;
+  flex-direction: column;
+  /* position: absolute; */
+  width: 100%;
 }
 
 
