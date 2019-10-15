@@ -18,7 +18,7 @@ class Header extends Component {
     
     render() {
         return (
-            <div>
+            <div className="all-header">
                 <section id="header">
                     <div className="header-container">
                         <div className="logo">
@@ -35,28 +35,28 @@ class Header extends Component {
                     </div>
                 </section>
                 <ul className={this.state.isExpanded ? "species-menu-expanded" : "species-menu"}>
-                    <li onClick={() => this.props.onRequestAnimals({type: 'Dog'})}>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Dog', limit: 100})}>
                         <Link to="/petpage">Dog</Link>
                     </li>
-                    <li onClick={() => this.props.onRequestAnimals({type: 'Cat'})}>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Cat', limit: 100})}>
                         <Link to="/petpage">Cat</Link>
                     </li>
-                    <li onClick={() => this.props.onRequestAnimals({type: 'Rabbit'})}>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Rabbit', limit: 100})}>
                         <Link to="/petpage">Rabbit</Link>
                     </li>
-                    <li onClick={() => this.props.onRequestAnimals({type: 'Small & Furry'})}>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Small & Furry', limit: 100})}>
                         <Link to="/petpage">Small & Furry</Link>
                     </li>
-                    <li onClick={() => this.props.onRequestAnimals({type: 'Horse'})}>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Horse', limit: 100})}>
                         <Link to="/petpage">Horse</Link>
                     </li>
-                    <li onClick={() => this.props.onRequestAnimals({type: 'Bird'})}>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Bird', limit: 100})}>
                         <Link to="/petpage">Bird</Link>
                     </li>
-                    <li onClick={() => this.props.onRequestAnimals({type: 'Scales, Fins & Other'})}>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Scales, Fins & Other', limit: 100})}>
                         <Link to="/petpage">Scales, Fins & Other</Link>
                     </li>
-                    <li onClick={() => this.props.onRequestAnimals({type: 'Barnyard'})}>
+                    <li onClick={() => this.props.onRequestAnimals({type: 'Barnyard', limit: 100})}>
                         <Link to="/petpage">Barnyard</Link>
                     </li>
                 </ul>

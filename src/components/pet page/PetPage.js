@@ -4,19 +4,30 @@ import { connect } from 'react-redux';
 import { requestAnimals } from '../../actions/actions';
 
 import InfoBar from './InfoBar';
-import Filters from './Filters';
+import FilterOptions from './FilterOptions';
 import Pets from './Pets';
+import AppliedFilters from './AppliedFilters';
 
 class PetPage extends Component {
     
     render() {
-        const { isPending, error, otherData } = this.props; // this should have animals from the store
-        const animals = [{ name: 'Bob', age: 'baby', species: 'dog'}]
+        const { isPending, error, otherData, animals } = this.props; // this should have animals from the store
+        // const animals = [{ name: 'Bob', age: 'baby', species: 'dog'}, { name: 'Bob', age: 'baby', species: 'dog'}, 
+        // { name: 'Bob', age: 'baby', species: 'snake'}, { name: 'Bob', age: 'baby', species: 'gecko'}, { name: 'Bob', age: 'baby', species: 'rabbit'},
+        // { name: 'Bob', age: 'baby', species: 'snake'}, { name: 'Bob', age: 'baby', species: 'dog'}, { name: 'Bob', age: 'baby', species: 'rabbit'}, { name: 'Bob', age: 'baby', species: 'rabbit'},
+        // { name: 'Bob', age: 'baby', species: 'dog'}, { name: 'Bob', age: 'baby', species: 'gecko'}]
+
+        console.log(animals)
+
+
 
         // individual animal object includes 
         
         // breeds: { mixed: boolean, primary: string, secondary: string, unknown: boolean }
-        
+        const primaryBreed = animals.map(animal => animal.breeds.primary);
+        const secondaryBreed = animals.map(animal => animal.breeds.secondary);
+        const species = [...new Set([...primaryBreed, ...secondaryBreed])]
+        console.log(species)
         
         // age: string - options - baby/young/adult/senior
         
@@ -25,13 +36,18 @@ class PetPage extends Component {
         // gender: string - options - male/female
 
         // need to figure out the amount of male and female
-        const amountFemales = (animals.filter(animal => animal.gender === 'Female')).length;
-        console.log(amountFemales)
+        // const amountFemales = (animals.filter(animal => animal.gender === 'Female')).length;
+        // console.log(amountFemales)
 
         
         // coat: string - options - short/long 
         
         // colors : { primary: string, secondary: string, tertiary: string }
+        // probably don't need to worry about this
+        const primaryColors = animals.map(animal => animal.colors.primary)
+        const secondaryColors = animals.map(animal => animal.colors.primary)
+        const colors = [...new Set([...primaryColors, ...secondaryColors])]
+        console.log('colors', colors)
         
         // photos: [ {full : string (link), large: string, medium: string, small: string } ]
         
@@ -51,9 +67,12 @@ class PetPage extends Component {
             <div>
                 {/* only show info bar if an API call is made */}
                 <InfoBar otherData={otherData}/>
-                <div className="animal-results">
-                    <Filters />
-                    <Pets animals={animals} isPending={isPending} error={error}/>
+                <div className="animal-results-page">
+                    <FilterOptions species={species}/>
+                    <div className="animal-results-right">
+                        <AppliedFilters />
+                        {/* <Pets animals={animals} isPending={isPending} error={error} /> */}
+                    </div>
                 </div>
             </div>
         );

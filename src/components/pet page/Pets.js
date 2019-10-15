@@ -13,7 +13,7 @@ const Pets = ({ animals, isPending, error }) => {
         );
     } else {
         return (
-            <div className="pet-cards">
+            <div className="pet-search-results">
                 {animals.map((animal, i) => {
                     return <PetCard 
                                 key={i} 

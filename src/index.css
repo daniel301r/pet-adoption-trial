@@ -13,7 +13,7 @@ body {
 }
 
 .App {
-  position: relative;
+  /* position: relative; */
 }
 
 a {
@@ -28,6 +28,10 @@ ul {
 }
 
 /* Header */
+
+.all-header{
+  position: relative;
+}
 
 #header {
   display: flex;
@@ -59,6 +63,7 @@ ul {
   list-style: none;
   background-color: aquamarine;
   padding: 1rem;
+  z-index: 2;
 }
 
 .sign-in-buttons {
@@ -71,6 +76,10 @@ ul {
 }
 
 /* Splash page */
+
+#splash-container {
+  position: relative;
+}
 
 .splash-front {
   background-image: url("https://images.unsplash.com/photo-1553322396-0c9cd410975e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
@@ -95,11 +104,13 @@ ul {
   left: 50%;
   margin-left: -30%;
   top: 90%;
+  z-index: 2;
 
 }
 
-/* Pet Page */
+/* All Pet Page */
 
+/* Info Bar */
 .info-bar {
   display: flex;
   justify-content: center;
@@ -111,9 +122,14 @@ ul {
   margin-right: 1rem;
 }
 
-.animal-results {
+/* Main Page */
+
+.animal-results-page {
   display: flex;
+  background-color: aliceblue;
 }
+
+/* Filter Bar */
 
 .filters-container {
   width: 25%;
@@ -142,9 +158,13 @@ ul {
   padding: 0.3rem;
 }
 
+.filter-options-container {
+  width: 100%;
+  position: relative;
+}
+
 .filter-options {
   display: none;
-  
 }
 
 .filter-options-expanded li {
@@ -156,9 +176,62 @@ ul {
 .filter-options-expanded {
   display: flex;
   flex-direction: column;
-  /* position: absolute; */
+  position: absolute;
   width: 100%;
+  background-color: white;
+  z-index: 2;
 }
 
+
+
+.animal-results-right {
+  padding: 1rem;
+  width: 75%;
+}
+
+/* Applied Filters */
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-bar p:first-child {
+  margin-right: 0.4rem;
+}
+
+.filter-bar p:last-child {
+  margin-left: 0.4rem;
+}
+
+.filter-bar ul {
+  margin: 0 0.3rem;
+}
+
+/* Pet Search Results */
+
+.pet-search-results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.pet-card img {
+  border-radius: 1rem 1rem 0 0;
+}
+
+/* .pet-info::before {
+  content: '';
+  background-color: white;
+} */
 
 
