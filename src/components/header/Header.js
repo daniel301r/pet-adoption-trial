@@ -24,7 +24,7 @@ class Header extends Component {
                         <div className="logo">
                             <Link to="/">LOGO</Link>
                         </div>
-                        <div onClick={this.toggleMenu}>Breeds<i className="fas fa-chevron-down"></i></div>  
+                        <div onClick={this.toggleMenu}>Species<i className="fas fa-chevron-down"></i></div>  
                     </div>
                     <div className="header-container">
                         <SearchBar />

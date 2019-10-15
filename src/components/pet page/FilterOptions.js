@@ -14,7 +14,6 @@ class Filters extends Component {
     }
 
     toggleOptions = (e) => {
-        console.log(e.target.id)
         this.setState({ 
             isExpanded: !this.state.isExpanded,
             [e.target.id]: !this.state[e.target.id]
@@ -22,7 +21,7 @@ class Filters extends Component {
     }
 
     render() {
-        const { species } = this.props;
+        const { species, addFilterOptions } = this.props;
         return (
             // should really make these into small stateless components and pass in data
             <div className="filters-container">
@@ -32,7 +31,7 @@ class Filters extends Component {
                 </div>
                 <div className="filter-options-container">
                     <ul className={this.state.isExpanded && this.state.breed ? "filter-options-expanded" : "filter-options"}>
-                        {species.map((specie, i) => {
+                        {/* {species.map((specie, i) => {
                             return (
                                 <li key={i}>
                                     {specie}
@@ -42,7 +41,7 @@ class Filters extends Component {
                                     </div>
                                 </li>
                             )
-                        })}
+                        })} */}
                     </ul>
                 </div>
                 <div className="filter-container">
@@ -55,28 +54,28 @@ class Filters extends Component {
                             Baby
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('age', 'baby')}></i>
                             </div>
                         </li>
                         <li>
                             Young
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('age', 'young')}></i>
                             </div>
                         </li>
                         <li>
                             Adult
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('age', 'adult')}></i>
                             </div>
                         </li>
                         <li>
                             Senior
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('age', 'senior')}></i>
                             </div>
                         </li>
                     </ul>
@@ -91,28 +90,28 @@ class Filters extends Component {
                             Small
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('size', 'small')}></i>
                             </div>
                         </li>
                         <li>
                             Medium
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('size', 'medium')}></i>
                             </div>
                         </li>
                         <li>
                             Large
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('size', 'large')}></i>
                             </div>
                         </li>
                         <li>
                             XL
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('size', 'xlarge')}></i>
                             </div>
                         </li>
                     </ul>
@@ -127,14 +126,14 @@ class Filters extends Component {
                             Male
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('gender', 'male')}></i>
                             </div>
                         </li>
                         <li>
                             Female
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('gender', 'female')}></i>
                             </div>
                         </li>
                     </ul>
@@ -149,21 +148,21 @@ class Filters extends Component {
                             Kids
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('good_with_children', true)}></i>
                             </div>
                         </li>
                         <li>
                             Dogs
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('good_with_dogs', true)}></i>
                             </div>
                         </li>
                         <li>
                             Cats
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('good_with_cats', true)}></i>
                             </div>
                         </li>
                     </ul>
@@ -178,21 +177,35 @@ class Filters extends Component {
                             Hairless
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'hairless')}></i>
                             </div>
                         </li>
                         <li>
                             Short
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'short')}></i>
+                            </div>
+                        </li>
+                        <li>
+                            Medium
+                            <div>
+                                <span>(0)</span>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'medium')}></i>
                             </div>
                         </li>
                         <li>
                             Long
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle"></i>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'long')}></i>
+                            </div>
+                        </li>
+                        <li>
+                            Curly
+                            <div>
+                                <span>(0)</span>
+                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'curly')}></i>
                             </div>
                         </li>
                     </ul>

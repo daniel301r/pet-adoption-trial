@@ -206,6 +206,7 @@ ul {
 }
 
 .filter-bar ul {
+  display: flex;
   margin: 0 0.3rem;
 }
 
