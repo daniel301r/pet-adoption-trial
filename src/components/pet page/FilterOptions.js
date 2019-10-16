@@ -14,6 +14,10 @@ class Filters extends Component {
     }
 
     toggleOptions = (e) => {
+        if(this.state.isExpanded && this.state[e.target.id] !== true){
+            return -1
+        }
+
         this.setState({ 
             isExpanded: !this.state.isExpanded,
             [e.target.id]: !this.state[e.target.id]

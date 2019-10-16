@@ -11,7 +11,6 @@ import AppliedFilters from './AppliedFilters';
 class PetPage extends Component {
 
     state ={
-
         breeds: [],
         ages: [],
         sizes: [],
@@ -24,60 +23,38 @@ class PetPage extends Component {
     }
 
     addFilterOptions = (filter, option) => {
-        // 'age' accepts multiple values
-        // 'breed' accepts multiple values
-        // 'size' as well
-        // 'gender' as well
-        // 'good with children' - are all seperate query calls
-        // coat length - accepts multiple
-        // 'color'
 
-        // put a switch statement here
-        // console.log('filter', filter)
-        // console.log('option', option)
-
+        const newArr = (option, arr) => {
+            if(!arr.includes(option)){
+                arr.push(option)
+            }
+            return arr
+        }
 
         switch(filter){
             case 'breed':
-                const breedsArr = this.state.breeds;
-                if(!breedsArr.includes(option)){
-                    breedsArr.push(option)
-                }
+                const breedsArr = newArr(option, this.state.breeds);
                 this.setState({
                     breeds: breedsArr
                 })
-                console.log(breedsArr)
-                console.log('breed')
                 break;
             case 'age':
-                const agesArr = this.state.ages;
-                if(!agesArr.includes(option)){
-                    agesArr.push(option)
-                }
+                const agesArr = newArr(option, this.state.ages)
                 this.setState({
                     ages: agesArr
                 })
-                console.log(agesArr)
                 break;
             case 'size':
-                const sizesArr = this.state.sizes;
-                if(!sizesArr.includes(option)){
-                    sizesArr.push(option)
-                }
+                const sizesArr = newArr(option, this.state.sizes);
                 this.setState({
                     sizes: sizesArr
                 })
-                console.log(sizesArr)
                 break;
             case 'gender':
-                const gendersArr = this.state.genders;
-                if(!gendersArr.includes(option)){
-                    gendersArr.push(option)
-                }
+                const gendersArr = newArr(option, this.state.genders);
                 this.setState({
                     genders: gendersArr
                 })
-                console.log(gendersArr)
                 break;
             case 'good_with_children':
                 this.setState({ isGood_with_children: true })
@@ -85,7 +62,6 @@ class PetPage extends Component {
                 break;
             case 'good_with_dogs':
                 this.setState({ isGood_with_dogs: true })
-
                 console.log(this.state.good_with_dogs)
                 break;
             case 'good_with_cats':
@@ -93,30 +69,85 @@ class PetPage extends Component {
                 console.log(this.state.good_with_cats)
                 break;
             case 'coat':
-                const coatsArr = this.state.coats;
-                if(!coatsArr.includes(option)){
-                    coatsArr.push(option)
-                }
+                const coatsArr = newArr(option, this.state.coats);
                 this.setState({
                     coats: coatsArr
                 })
-                console.log(coatsArr)
                 break;
             case 'color':
-                const colorsArr = this.state.colors;
-                if(!colorsArr.includes(option)){
-                    colorsArr.push(option)
-                }
+                const colorsArr = newArr(option, this.state.colors);
                 this.setState({
                     colors: colorsArr
                 })
-                console.log(colorsArr)
-                console.log('color')
                 break;
             default:
                 console.log('not working')
         }
 
+    }
+
+    deleteFilterOptions = (filter, option) => {
+        const newArr = (option, arr) => {
+            return arr.filter(el => el !== option)
+        }
+
+        console.log(filter, option)
+        switch(filter){
+            case 'age':
+                const agesArr = newArr(option, this.state.ages)
+                this.setState({
+                    ages: agesArr
+                })
+                break;
+            case 'breed':
+                const breedsArr = newArr(option, this.state.breeds )
+                this.setState({
+                    breeds : breedsArr
+                })
+                break;
+            case 'size':
+                const sizesArr = newArr(option, this.state.sizes)
+                this.setState({
+                   sizes : sizesArr
+                })
+                break;
+            case 'gender':
+                const gendersArr = newArr(option, this.state.genders)
+                this.setState({
+                    genders : gendersArr
+                })
+                break;
+            case 'coat':
+                const coatsArr = newArr(option, this.state.coats)
+                this.setState({
+                    coats : coatsArr
+                })
+                break;
+            case 'color':
+                const colorsArr = newArr(option, this.state.colors)
+                this.setState({
+                    colors : colorsArr
+                })
+                break;
+            default:
+                console.log('not working')
+        }
+    }
+
+    deleteAllFilters = () => {
+        this.setState({
+            breeds: [],
+            ages: [],
+            sizes: [],
+            genders: [],
+            isGood_with_children: false,
+            isGood_with_dogs: false,
+            isGood_with_cats: false,
+            coats: [],
+            colors: []
+        })
+
+        // here you need to make return to the original query made
     }
     
     render() {
@@ -177,7 +208,11 @@ class PetPage extends Component {
                 <div className="animal-results-page">
                     <FilterOptions addFilterOptions={this.addFilterOptions}/>
                     <div className="animal-results-right">
-                        <AppliedFilters filters={this.state}/>
+                        <AppliedFilters 
+                            filters={this.state} 
+                            deleteFilterOptions={this.deleteFilterOptions}
+                            deleteAllFilters={this.deleteAllFilters}
+                        />
                         <Pets animals={animals} isPending={isPending} error={error} />
                     </div>
                 </div>
