@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/header/Header';
 import SplashPage from './components/SplashPage';
-import PetPage from './components/pet page/PetPage';
+import PetPage from './components/petsPage/PetPage';
+import RequestedPet from './requestedPet/RequestedPet';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       <Header />
       <Switch>
         <Route exact path='/' component={SplashPage}/>
-        <Route path='/petpage/' component={PetPage}/>
+        <Route path='/petpage' component={PetPage}/>
+        <Route path='/singlepet/:petId' component={RequestedPet}/>
       </Switch>
       </BrowserRouter>
     </div>

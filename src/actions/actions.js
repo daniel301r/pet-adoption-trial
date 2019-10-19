@@ -19,10 +19,9 @@ export const requestAnimals = (query) => (dispatch) => {
         .catch(error => dispatch({ type: REQUEST_ANIMALS_FAILED, payload: error }))
 }
 
-export const updateAnimalQuery = (query, calledFrom) => ({
+export const updateAnimalQuery = (query) => ({
     type: 'UPDATE_ANIMAL_QUERY',
-    payload: query,
-    calledFrom    
+    payload: query  
 })
 
 

@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { requestAnimals } from '../actions/actions';
 
 class SplashPage extends Component {
-
+    // this could be updated to a stateless component
+    // need to add function to update the animal query
     render() {
         return (
             <div>

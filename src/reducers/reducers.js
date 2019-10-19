@@ -18,7 +18,7 @@ export const initReducer = (state=initState, action) => {
 }
 
 const searchAnimalsState = {
-    animalQuery: {},
+    animalQuery: '',
     isPending: false,
     animals: [],
     otherData: {},
@@ -28,12 +28,10 @@ const searchAnimalsState = {
 export const searchAnimals = (state=searchAnimalsState, action) => {
     switch(action.type){
         case UPDATE_ANIMAL_QUERY:
-            console.log(action.payload)
             return {...state, animalQuery: action.payload}
         case REQUEST_ANIMALS_PENDING:
             return {...state, isPending: true}
         case REQUEST_ANIMALS_SUCCESS:
-            console.log(action.payload)
             return {...state, animals: action.payload.data.animals, otherData: action.payload, isPending: false}
         case REQUEST_ANIMALS_FAILED: 
             return {...state, error: action.payload, isPending: false}
