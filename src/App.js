@@ -21,7 +21,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={SplashPage}/>
         <Route path='/petpage' component={PetPage}/>
-        <Route path='/singlepet/:petId' component={RequestedPet}/>
+        <Route path='/singlepet/:pet_id' component={RequestedPet}/>
       </Switch>
       </BrowserRouter>
     </div>

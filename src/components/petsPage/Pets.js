@@ -23,7 +23,7 @@ const Pets = ({ animals, isPending, error }) => {
         return finalList;
     },[]);
 
-    console.log(filteredAnimals)
+    console.log('filtered', filteredAnimals)
 
     if(isPending){
         return(

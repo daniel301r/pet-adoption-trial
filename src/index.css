@@ -224,15 +224,13 @@ ul {
   margin: 1rem;
   border-radius: 1rem;
   background-color: white;
+  width: 250px;
+  height: 300px;
 }
 
 .pet-card img {
   border-radius: 1rem 1rem 0 0;
 }
 
-/* .pet-info::before {
-  content: '';
-  background-color: white;
-} */
 
 

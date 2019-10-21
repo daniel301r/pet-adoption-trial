@@ -2,6 +2,9 @@ import {
     REQUEST_ANIMALS_PENDING,
     REQUEST_ANIMALS_SUCCESS,
     REQUEST_ANIMALS_FAILED,
+    REQUEST_ANIMAL_PENDING,
+    REQUEST_ANIMAL_SUCCESS,
+    REQUEST_ANIMAL_FAILED,
     UPDATE_ANIMAL_QUERY
 } from '../constants';
 
@@ -19,10 +22,13 @@ export const initReducer = (state=initState, action) => {
 
 const searchAnimalsState = {
     animalQuery: '',
-    isPending: false,
+    isPendingAnimals: false,
     animals: [],
     otherData: {},
-    error: ''
+    errorAnimals: '',
+    animal: [],
+    isPendingAnimal: false,
+    errorAnimal: ''
 }
 
 export const searchAnimals = (state=searchAnimalsState, action) => {
@@ -30,11 +36,17 @@ export const searchAnimals = (state=searchAnimalsState, action) => {
         case UPDATE_ANIMAL_QUERY:
             return {...state, animalQuery: action.payload}
         case REQUEST_ANIMALS_PENDING:
-            return {...state, isPending: true}
+            return {...state, isPendingAnimals: true}
         case REQUEST_ANIMALS_SUCCESS:
-            return {...state, animals: action.payload.data.animals, otherData: action.payload, isPending: false}
+            return {...state, animals: action.payload.data.animals, otherData: action.payload, isPendingAnimals: false}
         case REQUEST_ANIMALS_FAILED: 
-            return {...state, error: action.payload, isPending: false}
+            return {...state, errorAnimals: action.payload, isPendingAnimals: false}
+        case REQUEST_ANIMAL_PENDING:
+            return {...state, isPendingAnimal: true}
+        case REQUEST_ANIMAL_SUCCESS:
+            return {...state, animal: action.payload.data.animal, isPendingAnimal: false}
+        case REQUEST_ANIMAL_FAILED: 
+            return {...state, errorAnimal: action.payload, isPendingAnimal: false}
         default:
             return state;
     }

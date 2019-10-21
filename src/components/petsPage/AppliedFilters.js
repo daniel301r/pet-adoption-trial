@@ -3,7 +3,6 @@ import React from 'react';
 const AppliedFilters = ({ filters, deleteFilterOptions, deleteAllFilters, makeRequestToAPI }) => {
     
     const capitalize = (s) => {
-        // if (typeof s !== 'string') return ''
         return s.charAt(0).toUpperCase() + s.slice(1)
     }
 

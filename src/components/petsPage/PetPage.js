@@ -175,7 +175,7 @@ class PetPage extends Component {
     render() {
         const { isPending, error, otherData, animals } = this.props; // this should have animals from the store
 
-        
+        console.log('animals', animals)
 
         //console.log(animals)
 
@@ -232,10 +232,10 @@ class PetPage extends Component {
 const mapStateToProps = (state) => {
     return {
         animalQuery: state.searchAnimals.animalQuery,
-        isPending: state.searchAnimals.isPending,
+        isPending: state.searchAnimals.isPendingAnimals,
         otherData: state.searchAnimals.otherData,
         animals: state.searchAnimals.animals,
-        error: state.searchAnimals.error
+        error: state.searchAnimals.errorAnimals
     }
 }
 
