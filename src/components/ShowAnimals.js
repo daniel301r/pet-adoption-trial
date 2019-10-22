@@ -76,6 +76,10 @@ class ShowAnimals extends Component {
           // // ---- BREEDS ----
           // // - this returns a massive list of breeds so would need to look through it
           // // and filter options
+
+
+          // use this for the search bar to return the breeds
+
           // client.animalData.breeds('dog')
           //   .then(res => {
           //     console.log(res.data.breeds)

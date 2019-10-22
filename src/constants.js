@@ -11,3 +11,8 @@ export const REQUEST_ANIMAL_SUCCESS = 'REQUEST_ANIMAL_SUCCESS';
 export const REQUEST_ANIMAL_FAILED = 'REQUEST_ANIMAL_FAILED';
 
 export const UPDATE_ANIMAL_QUERY = 'UPDATE_ANIMAL_QUERY';
+
+export const capitalize = (s) => {
+    // if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+}

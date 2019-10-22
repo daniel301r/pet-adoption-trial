@@ -26,8 +26,8 @@ const ImageGallery = ({ photos }) => {
                 setIndex(i);
             }}
         >
-            {photos.map(image => {
-                return <GalleryImage objectFit="contain" src={image}/>
+            {photos.map((image, i) => {
+                return <GalleryImage key={i} objectFit="contain" src={image}/>
             })}
         </Gallery>
     );

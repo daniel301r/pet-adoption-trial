@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 
 import { requestAnimal } from '../actions/actions';
 import ImageGallery from './ImageGallery';
+import InfoBubble from './InfoBubble';
 
 class RequestedPet extends Component {
 
@@ -20,8 +21,7 @@ class RequestedPet extends Component {
         // just need to send id through 
         console.log(this.props.pet_id);
         console.log(parseInt(this.props.pet_id));
-        //this.props.onRequestAnimal(id);
-        //this.props.onRequestAnimal(parseInt(this.props.pet_id))
+        this.props.onRequestAnimal(parseInt(this.props.pet_id))
     }
 
     // move to next pet
@@ -31,30 +31,18 @@ class RequestedPet extends Component {
     // move to previous pet
 
 
-    /*
-        age - string
-        attributes - object
-        breeds: { mixed: boolean, primary: string, secondary: string, unknown: boolean }
-        coat
-        colors : {}
-        description - string
-        environment - object - good with children etc
-        gender
-        name
-        photos - object
-        size - string
-        tags - array
-    */
+
 
     render() {
         console.log(this.props);
         const { photos } = this.props.animal;
         console.log(photos);
-        const images = [/*"https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46341299/1/?bust=1571693959&width=600",*/"https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46341299/2/?bust=1571693958&width=600"]
+        const images = ["https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46341299/1/?bust=1571693959&width=600","https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46341299/2/?bust=1571693958&width=600"]
         return (
             <div>
                 <SelectBar />
                 <ImageGallery photos={images} />
+                <InfoBubble animal={this.props.animal}/>
             </div>
         )
     }

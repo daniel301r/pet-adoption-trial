@@ -1,11 +1,11 @@
 import React from 'react';
+import { capitalize } from '../../constants';
+
+
+//import capitalize from the file I'm going to put it in
+
 
 const AppliedFilters = ({ filters, deleteFilterOptions, deleteAllFilters }) => {
-    
-    const capitalize = (s) => {
-        // if (typeof s !== 'string') return ''
-        return s.charAt(0).toUpperCase() + s.slice(1)
-    }
 
     // const createList = (list) => {
     //     return list.map((listEl, i) => { 
