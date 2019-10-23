@@ -1,27 +1,24 @@
 import React from 'react';
 import { capitalize } from '../constants';
 
-const InfoBubble = ({ animal }) => {
+const InfoBubble = ({ animal, isPending, error }) => {
 
-
-    
-    //const healthAttributes = { declawed: null, house_trained: false, shots_current: true, spayed_neutered: true, special_needs: false}
-    // need to add the 
     const attributes = (obj) => {
-        let finalString =''
-        if (obj.declawed === true){
+        let finalString ='';
+        // I removed === true from conditions because
+        if (obj.declawed){
             finalString += 'Declawed, '
         } 
-        if (obj.house_trained === true){
+        if (obj.house_trained){
             finalString += 'House Trained, '
         } 
-        if (obj.shots_current === true){
+        if (obj.shots_current){
             finalString += 'Shots Up-To-Date, '
         } 
-        if (obj.spayed_neutered === true){
+        if (obj.spayed_neutered){
             finalString += 'Spayed, '
         }
-        if (obj.house_trained === true){
+        if (obj.house_trained){
             finalString += 'House Trained, '
         } 
         
@@ -34,10 +31,8 @@ const InfoBubble = ({ animal }) => {
         return finalString
     }
 
-   //const colorsObj = { primary: 'Brown', secondary: 'Blue', tertiary: null}
-   
    const colors = () => {
-        const colorsArr = Object.values(animal.colors)
+       const colorsArr = Object.values(animal.colors)
        let finalString = ''
         for(const color of colorsArr){
             if(color !== null){
@@ -47,9 +42,6 @@ const InfoBubble = ({ animal }) => {
        finalString = finalString.slice(0, -2)
        return finalString
    }
-   //console.log('colors', colors(colorsArr))
-   
-   // const environment = { cats: null, children: true, dogs: false} 
    
     const goodWith = () => {
         const envArr = Object.entries(animal.environment)
@@ -67,59 +59,51 @@ const InfoBubble = ({ animal }) => {
         }
         return finalString
     }
-    /*
-        
-        
-        contact - make something up
-        description - string
-        environment - { cats: null, children: true, dogs: true}
-        breeds: { mixed: true, primary: "Chihuahua", secondary: null, unknown: false }
-    */
 
-
-
-   // const breedsObj = { mixed: true, primary: "Chihuahua", secondary: null, unknown: false };
     const breeds = (obj) => {
         let finalString = ''
-
         if(obj.unknown){
             return 'Unknown'
         } else {
-            finalString += `${obj.primary}, ${obj.secondary !== null ? obj.secondary : ''}`
+            finalString += `${obj.primary}, ${obj.secondary !== null ? obj.secondary : ''}`;
         }
 
         if(obj.mixed === true){
             finalString += 'Mix'
         } else {
-            finalString = finalString.slice(0, 2)
+            finalString = finalString.slice(0, -2)
         }
-
         return finalString
     }
-    //console.log('breeds', breeds(breedsObj))
 
-
-    if(!animal){
+    if(error){
         return (
-            <div>No Animal</div>
+            <div>Sorry we couldn't find the animal you are looking for!!</div>
+        )
+    } else if(isPending){
+        return (
+            <div>Wait wait wait....</div>
         )
     } else {
         return (
             <div>
                 <div>{animal.name}</div>
+                {/* something strange happening with breeds */}
                 <div>{animal.breeds && breeds(animal.breeds)} / Location</div>
+                {/* make colors it's own line and add 'Gender:' to all the options to make it clear */}
                 <div>{animal.age} / {animal.gender} / {animal.size} / {animal.colors && colors()}</div>
                 <div>
                     <h2>About</h2>
+                    {/* add 'Coat:' */}
                     <div>{animal.coat}</div>
-                    <div></div>
+                    <div>{animal.environment && goodWith()}</div>
                 </div>
                 <div>
                     <h2>Health</h2>
                     <div>{animal.attributes && attributes(animal.attributes)}</div>
                 </div>
                 <div>{animal.description}</div>
-                <div>{animal.environment && goodWith()}</div>
+                
             </div>
         );
     }

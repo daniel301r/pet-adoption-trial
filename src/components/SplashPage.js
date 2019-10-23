@@ -13,11 +13,13 @@ class SplashPage extends Component {
                 <div id="splash-container">
                     <div className="splash-front">
                         <h1>Find Your Perfect Companion</h1>
-                        <h3>Thousands of pets for adoption. Looking for a home.</h3>
-                        <button><Link to="/petpage/any">Search Pets</Link></button>
+                        <h2>Hundreds of pets for adoption, looking for a home.</h2>
+                        <button className="search-btn"><Link to="/petpage/any">Find your buddy now!</Link></button>
                     </div>
-                    <div className="quick-search">
-                        <div>Quick Search<i className="far fa-arrow-alt-circle-right"></i></div>
+                    <div className="quick-search-container">
+                        <div className="quick-search">
+                            <div>Quick Search</div>
+                        </div>
                         <div onClick={() => this.props.onRequestAnimals({type: 'Dog'})}>
                             <Link to="/petpage/"><i className="fas fa-dog"></i>Find a dog</Link>
                         </div>

@@ -25,7 +25,7 @@ class Filters extends Component {
     }
 
     render() {
-        const { species, addFilterOptions, makeRequestToAPI } = this.props;
+        const { addFilterOptions, makeRequestToAPI } = this.props;
         return (
             // should really make these into small stateless components and pass in data
             <div className="filters-container">

@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import SearchBar from './SearchBar';
-
 import { updateAnimalQuery, requestAnimals } from '../../actions/actions';
 
 class Header extends Component {
 
     state = {
-        isExpanded: false,
+        isExpanded: false
     }
 
     toggleMenu = () => {
@@ -26,19 +24,14 @@ class Header extends Component {
         return (
             <div className="all-header">
                 <section id="header">
-                    <div className="header-container">
                         <div className="logo">
-                            <Link to="/">LOGO</Link>
+                            <Link to="/">Find A Pet</Link>
                         </div>
-                        <div onClick={this.toggleMenu}>Species<i className="fas fa-chevron-down"></i></div>  
-                    </div>
-                    <div className="header-container">
-                        <SearchBar />
-                        <ul className="sign-in-buttons">
-                            <li><Link to="/signup">Sign Up</Link></li>
-                            <li><Link to="/login">Log In</Link></li>
-                        </ul>
-                    </div>
+                        <div className="species-menu-btn" onClick={this.toggleMenu}>
+                            <div>Species</div>
+                            {this.state.isExpanded ? <i className="fas fa-chevron-up"></i> : <i className="fas fa-chevron-down"></i> }
+                            
+                        </div>
                 </section>
                 <ul className={this.state.isExpanded ? "species-menu-expanded" : "species-menu"}>
                     <li onClick={() => this.sendQuery('Dog')}>
