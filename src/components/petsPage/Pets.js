@@ -23,8 +23,6 @@ const Pets = ({ animals, isPending, error }) => {
         return finalList;
     },[]);
 
-    console.log('filtered', filteredAnimals)
-
     if(isPending){
         return(
             <div className="">Wait wait wait...</div>

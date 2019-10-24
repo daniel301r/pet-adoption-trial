@@ -1,6 +1,7 @@
 :root{
   --main-txt-color: darkblue;
   --main-bg-color: #6e07c3;
+  --sec-bg-color: #8833ce;
 }
 
 * {
@@ -39,7 +40,7 @@ ul {
   align-items: center;
   background-color: #fdfcfc;
   height: 13vh;
-  box-shadow: 0px 7px 18px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
 }
 
 .logo{
@@ -138,7 +139,6 @@ ul {
   align-items: center;
   /* can I make the height responsive? */
   height: 100px;
-  border: 0.1rem black solid;
   border-radius: 1rem;
   background-color: aliceblue;
   width: 70%;
@@ -184,11 +184,15 @@ ul {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #a14fe4;
+  background-color: var(--sec-bg-color);
 }
 
 .quick-search-container div:nth-child(3){
   border-radius: 0 1rem 1rem 0;
+}
+
+.quick-search-container a i{
+  margin-right: 0.5rem;
 }
 
 
@@ -201,7 +205,8 @@ ul {
   display: flex;
   justify-content: center;
   padding: 1rem;
-  background-color: lightblue;
+  background-color: var(--sec-bg-color);
+  color: white;
 }
 
 .info-bar div:first-child {
@@ -212,14 +217,14 @@ ul {
 
 .animal-results-page {
   display: flex;
-  background-color: aliceblue;
+  background-color: #f0f1f3;
 }
 
 /* Filter Bar */
 
 .filters-container {
-  width: 25%;
-  padding: 1rem;
+  width: 28%;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,12 +241,22 @@ ul {
   margin: 0.3rem 0;
 }
 
+.filter-container div:first-child {
+  text-transform: uppercase;
+  font-size: .9rem;
+  font-weight: bold;
+}
+
 .filter-container button {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.3rem;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(77,71,81,.2);
 }
 
 .filter-options-container {
@@ -271,7 +286,7 @@ ul {
 
 
 .animal-results-right {
-  padding: 1rem;
+  padding: 1.5rem;
   width: 75%;
 }
 

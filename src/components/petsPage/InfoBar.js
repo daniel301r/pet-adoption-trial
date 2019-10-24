@@ -1,33 +1,61 @@
 import React from 'react';
 
-const InfoBar = ({ otherData }) => {
-    // if the animalType is small and fury or something similar
-    // will need to change what is returned to say '1000 furry and
-    // small animals found'
+// make this so it appears and it fills the space but only shows things when data comes
 
-    const animalIcon = (animal) => {
-        // <i class="fas fa-dog"></i>
-
-        // <i class="fas fa-cat"></i>
-
-        // rabbit/hamster not on font awesome
-
-        // <i class="fas fa-horse"></i>
-
-        // <i class="fas fa-crow"></i>
-
-        // <i class="fas fa-fish"></i>
-
-        // <i class="fas fa-piggy-bank"></i>
+const InfoBar = ({ otherData, query }) => {
+    
+    const animalIcon = (animal) => {  
+        switch(animal){
+            case 'Dog':
+                return <i className="fas fa-dog"></i>
+            case 'Cat':
+                return <i className="fas fa-cat"></i>
+            case 'Rabbit':
+                return <i className="fas fa-horse"></i>
+            case 'Small & Furry':
+                // need to find image
+                break;
+            case 'Horse':
+                // need to find image
+                break;
+            case 'Bird':
+                return <i className="fas fa-crow"></i>
+            case 'Barnyard':
+                return <i className="fas fa-piggy-bank"></i>
+            case 'Scales, Fins & Other':
+                return <i className="fas fa-fish"></i>
+        }
     }
 
-    const text = `${otherData.headers ? otherData.headers["content-length"] : ''} ${otherData.config ? otherData.config.params.type : ''}s Found`;
+    const text = (data, animal) => {
+        console.log(animal)
+        const amount = data.headers["content-length"];
+        const animalType = data.config.params.type;
+        // refactor this
+        switch(animal){
+            case 'Dog':
+                return `${amount} ${animalType}s Found`
+            case 'Cat':
+                return `${amount} ${animalType}s Found`
+            case 'Rabbit':
+                return `${amount} ${animalType}s Found`
+            case 'Small & Furry':
+                return `${amount} ${animalType} Animals Found`
+            case 'Horse':
+                return `${amount} ${animalType}s Found`
+            case 'Bird':
+                return `${amount} ${animalType}s Found`
+            case 'Barnyard':
+                return `${amount} ${animalType} Animals Found`
+            case 'Scales, Fins & Other':
+                return `${amount} ${animalType} Animals Found`
+        }
+    }
 
-    // also will need to change the icon depending on animal found
     return (
         <div className="info-bar">
-            <div><i className="fas fa-frog"></i></div>
-            <div>{text}</div>
+            <div>{animalIcon(query)}</div>
+            <div>{text(otherData, query)}</div>
         </div>
     );
 };

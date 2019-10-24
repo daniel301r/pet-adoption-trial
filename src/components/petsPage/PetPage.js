@@ -175,7 +175,7 @@ class PetPage extends Component {
     render() {
         const { isPending, error, otherData, animals } = this.props; // this should have animals from the store
 
-        console.log('animals', animals)
+        console.log(otherData, this.props.animalQuery)
 
         //console.log(animals)
 
@@ -210,8 +210,7 @@ class PetPage extends Component {
 
         return (
             <div>
-                {/* only show info bar if an API call is made */}
-                <InfoBar otherData={otherData}/>
+                {animals.length > 0 ? <InfoBar otherData={otherData} query={this.props.animalQuery}/> : ''}
                 <div className="animal-results-page">
                     <FilterOptions addFilterOptions={this.addFilterOptions} makeRequestToAPI={this.makeRequestToAPI}/>
                     <div className="animal-results-right">
