@@ -42,7 +42,7 @@ const Pets = ({ animals, isPending, error }) => {
                                 name={animal.name} 
                                 age={animal.age} 
                                 species={animal.species}
-                                img={animal.photos.length > 0 ? animal.photos[0].small : 'No Image'}
+                                img={animal.photos.length > 0 ? animal.photos[0].medium : 'No Image'}
                                 // need to standardise the image
                             />
                 })}
