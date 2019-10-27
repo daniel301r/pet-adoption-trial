@@ -169,7 +169,7 @@ class PetPage extends Component {
             }
         }
         // add request here
-        this.props.onRequestAnimals(query);
+        // this.props.onRequestAnimals(query);
     }
 
     render() {
@@ -212,7 +212,10 @@ class PetPage extends Component {
             <div>
                 {animals.length > 0 ? <InfoBar otherData={otherData} query={this.props.animalQuery}/> : ''}
                 <div className="animal-results-page">
-                    <FilterOptions addFilterOptions={this.addFilterOptions} makeRequestToAPI={this.makeRequestToAPI}/>
+                    <FilterOptions 
+                        addFilterOptions={this.addFilterOptions} 
+                        makeRequestToAPI={this.makeRequestToAPI}
+                    />
                     <div className="animal-results-right">
                         <AppliedFilters 
                             filters={this.state} 

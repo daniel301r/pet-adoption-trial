@@ -21,6 +21,8 @@ class Header extends Component {
     }
     
     render() {
+        const onPetPage = window.location.href.includes('petpage');
+
         return (
             <div className="all-header">
                 <section id="header">
@@ -33,7 +35,8 @@ class Header extends Component {
                             
                         </div>
                 </section>
-                <ul className={this.state.isExpanded ? "species-menu-expanded" : "species-menu"}>
+                <ul className={this.state.isExpanded ? "species-menu-expanded" : "species-menu"}
+                    style={onPetPage ? { position: 'relative' }: { position: 'absolute' }}>
                     <li onClick={() => this.sendQuery('Dog')}>
                         <Link to="/petpage">Dog</Link>
                     </li>
@@ -64,11 +67,18 @@ class Header extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) =>{
+const mapStateToProps = (state, ownProps) => {
+    console.log(window.location.href)
+    return {
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
     return {
         onUpdateAnimalQuery: (query, calledFrom) => dispatch(updateAnimalQuery(query, calledFrom)),
         onRequestAnimals: (query) => dispatch(requestAnimals(query))
     }
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
