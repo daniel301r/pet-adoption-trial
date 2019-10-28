@@ -17,11 +17,32 @@ import InfoBubble from './InfoBubble';
 
 class RequestedPet extends Component {
 
-    componentDidMount = () => {
-        // just need to send id through 
-        //this.props.onRequestAnimal(parseInt(this.props.pet_id))
+    state = {
+        animal: [],
+        currIndex: 0
     }
 
+    componentDidMount = () => {
+        // just need to send id through 
+        this.props.onRequestAnimal(parseInt(this.props.pet_id))
+        // see if setting the animal immediately after this works
+    }
+
+    movePetSelection = (way) => {
+        const animals = this.props.animals;
+        const id = this.props.animal.id;
+        const currIndex = animals.findIndex(animal => animal.id === id);
+        console.log(way, id, animals, currIndex)
+        // need to check if it is on 0 or the last in the array
+        if(way === 'next'){
+            // go forward in array
+            this.setState({ animal: animals[currIndex + 1], currIndex: currIndex + 1})
+        } else {
+            // go backwards in array
+            this.setState({ animal: animals[currIndex - 1], currIndex: currIndex - 1})
+        }
+
+    }
     // move to next pet
     // maybe set filtered array into the store, then find index of current animal and 
     // move onto the next one
@@ -34,10 +55,10 @@ class RequestedPet extends Component {
     render() {
         const { animal, isPending, error } = this.props
         const { photos } = animal;
-        console.log(animal)
+        console.log(this.props.animals)
         return (
             <div>
-                <SelectBar />
+                <SelectBar movePetSelection={this.movePetSelection}/>
                 <ImageGallery photos={photos} />
                 <InfoBubble animal={animal} isPending={isPending} error={error}/>
             </div>
@@ -52,7 +73,7 @@ const mapStateToProps = (state, ownProps) => {
         animal: state.searchAnimals.animal,
         isPending: state.searchAnimals.isPendingAnimal,
         error: state.searchAnimals.errorAnimal,
-
+        animals: state.searchAnimals.animals
     }
 }
 

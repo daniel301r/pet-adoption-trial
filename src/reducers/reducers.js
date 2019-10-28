@@ -5,7 +5,8 @@ import {
     REQUEST_ANIMAL_PENDING,
     REQUEST_ANIMAL_SUCCESS,
     REQUEST_ANIMAL_FAILED,
-    UPDATE_ANIMAL_QUERY
+    UPDATE_ANIMAL_QUERY,
+    capitaliseWords
 } from '../constants';
 
 const initState = {
@@ -38,7 +39,21 @@ export const searchAnimals = (state=searchAnimalsState, action) => {
         case REQUEST_ANIMALS_PENDING:
             return {...state, isPendingAnimals: true}
         case REQUEST_ANIMALS_SUCCESS:
-            return {...state, animals: action.payload.data.animals, otherData: action.payload, isPendingAnimals: false}
+                
+            const filteredAnimals = action.payload.data.animals.reduce((finalList, animal) => {
+                const symbols = [".",",","(",")","&","!","%","*","-","#","?","/","1","2","3","4","5","6","7","8","9","0"] 
+                
+                animal.name = capitaliseWords(animal.name)
+        
+                if(!symbols.some(el => animal.name.includes(el)) && animal.photos.length > 0){
+                    finalList.push(animal)
+                }
+        
+                return finalList;
+            },[]);
+            console.log(filteredAnimals)
+
+            return {...state, animals: filteredAnimals, otherData: action.payload, isPendingAnimals: false}
         case REQUEST_ANIMALS_FAILED: 
             return {...state, errorAnimals: action.payload, isPendingAnimals: false}
         case REQUEST_ANIMAL_PENDING:

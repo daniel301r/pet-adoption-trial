@@ -45,7 +45,7 @@ const InfoBubble = ({ animal, isPending, error }) => {
    
     const goodWith = () => {
         const envArr = Object.entries(animal.environment)
-        let  finalString = 'Good with: ';
+        let  finalString = '';
         for (const [who, boolean] of envArr){
             if(boolean === true){
                 finalString += `${capitalize(who)}, `;
@@ -86,24 +86,46 @@ const InfoBubble = ({ animal, isPending, error }) => {
         )
     } else {
         return (
-            <div>
-                <div>{animal.name}</div>
-                {/* something strange happening with breeds */}
-                <div>{animal.breeds && breeds(animal.breeds)} / Location</div>
-                {/* make colors it's own line and add 'Gender:' to all the options to make it clear */}
-                <div>{animal.age} / {animal.gender} / {animal.size} / {animal.colors && colors()}</div>
-                <div>
-                    <h2>About</h2>
-                    {/* add 'Coat:' */}
-                    <div>{animal.coat}</div>
-                    <div>{animal.environment && goodWith()}</div>
-                </div>
-                <div>
-                    <h2>Health</h2>
-                    <div>{animal.attributes && attributes(animal.attributes)}</div>
-                </div>
-                <div>{animal.description}</div>
-                
+            <div className="info-bubble">
+                <div className="info-data">
+                    <div className="info-name">
+                        <h1>{animal.name}</h1>
+                        <div>{animal.breeds && breeds(animal.breeds)}</div>
+                    </div>
+                    {/* make colors it's own line and add 'Gender:' to all the options to make it clear */}
+                    <div className="info-mix">{animal.age} / {animal.gender} / {animal.size} / {animal.colors && colors()}</div>
+                    <div className="info-about">
+                        <h2>About</h2>
+                        {/* could add these into divs and align them better */}
+                        <div>
+                            <h4>Coat Length</h4>
+                            <div>{animal.coat}</div>
+                        </div>
+                        <div>
+                            <h4>Good In a House With</h4>
+                            <div>{animal.environment && goodWith()}</div>
+                        </div>
+                        <div>
+                            <h4>Description</h4>
+                            <div>{animal.description}</div>
+                        </div>
+                    </div>  
+                    <div className="info-health">
+                        <h2>Health</h2>
+                        <div>{animal.attributes && attributes(animal.attributes)}</div>
+                    </div>
+                    
+                </div>   
+                <div className="sponsor-div">
+                    <div className="sponsor-div-btns">
+                        <button>Ask about {animal.name}</button>
+                        <button>Sponsor {animal.name}</button>
+                    </div>
+                    <div className="sponsor-div-shr">
+                        <div><i class="fas fa-share"></i>Share</div>
+                        <div><i class="fas fa-print"></i>Print</div>
+                    </div>
+                </div>        
             </div>
         );
     }

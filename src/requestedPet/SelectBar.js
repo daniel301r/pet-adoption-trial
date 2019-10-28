@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const selectBar = () => {
+const selectBar = ({ movePetSelection }) => {
     return (
         <div className="select-bar">
-            <div><i className="fas fa-arrow-left"></i>Previous Pet</div>
-            <div>Back to Pet Search</div>
-            <div>Next Pet<i className="fas fa-arrow-right"></i></div>
+            <div onClick={() => movePetSelection("prev")}><i className="fas fa-arrow-left"></i>Previous Pet</div>
+            <div><Link to="/petpage">Back to Pet Search</Link></div>
+            <div onClick={() => movePetSelection("next")}>Next Pet<i className="fas fa-arrow-right"></i></div>
         </div>
     );
 };

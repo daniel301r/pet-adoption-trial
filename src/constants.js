@@ -13,6 +13,13 @@ export const REQUEST_ANIMAL_FAILED = 'REQUEST_ANIMAL_FAILED';
 export const UPDATE_ANIMAL_QUERY = 'UPDATE_ANIMAL_QUERY';
 
 export const capitalize = (s) => {
-    // if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+export const capitaliseWords = (phrase) => {
+    return phrase
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 }

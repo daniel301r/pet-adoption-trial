@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { requestAnimals } from '../../actions/actions';
 
+import { capitaliseWords } from '../../constants';
+
 import InfoBar from './InfoBar';
 import FilterOptions from './FilterOptions';
 import Pets from './Pets';
@@ -172,12 +174,12 @@ class PetPage extends Component {
         // this.props.onRequestAnimals(query);
     }
 
+
+
     render() {
         const { isPending, error, otherData, animals } = this.props; // this should have animals from the store
 
-        console.log(otherData, this.props.animalQuery)
-
-        //console.log(animals)
+        console.log(animals)
 
         // individual animal object includes 
         

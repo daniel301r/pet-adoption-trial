@@ -4,26 +4,6 @@ import PetCard from './PetCard';
 
 const Pets = ({ animals, isPending, error }) => {
 
-    const capitaliseWords = (phrase) => {
-        return phrase
-            .toLowerCase()
-            .split(' ')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
-    }
-
-    const filteredAnimals = animals.reduce((finalList, animal) => {
-        const symbols = [".",",","(",")","&","!","%","*","-","#","?","/","1","2","3","4","5","6","7","8","9","0"] 
-        
-        animal.name = capitaliseWords(animal.name)
-
-        if(!symbols.some(el => animal.name.includes(el)) && animal.photos.length > 0){
-            finalList.push(animal)
-        }
-
-        return finalList;
-    },[]);
-
     if(isPending){
         return(
             <div className="">Wait wait wait...</div>
@@ -34,9 +14,8 @@ const Pets = ({ animals, isPending, error }) => {
         );
     } else {
         return (
-            
             <div className="pet-search-results">
-                {filteredAnimals.map((animal, i) => {
+                {animals.map((animal, i) => {
                     return <PetCard 
                                 key={i} 
                                 id={animal.id}

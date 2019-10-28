@@ -2,6 +2,7 @@
   --main-txt-color: darkblue;
   --main-bg-color: #6e07c3;
   --sec-bg-color: #8833ce;
+  --ter-bg-color: #f0f1f3;
 }
 
 * {
@@ -217,7 +218,7 @@ ul {
 
 .animal-results-page {
   display: flex;
-  background-color: #f0f1f3;
+  background-color: var(--ter-bg-color);
 }
 
 /* Filter Bar */
@@ -441,6 +442,92 @@ ul {
 
 .select-bar div:last-child i{
   margin-left: .5rem;
+}
+
+.info-bubble {
+  display: flex;
+  justify-content: center;
+  background-color: var(--ter-bg-color);
+}
+
+.info-data {
+  width: 60%;
+  padding: 1rem;
+  background-color: white;
+  margin: 1.4rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 6px #4d4751;
+}
+
+.info-name, .info-mix {
+  padding: 1.5rem 0;
+  border-bottom: 1px grey solid;
+}
+.info-name h1 {
+  margin-bottom: .5rem;
+}
+
+.info-about {
+  padding: 1.2rem 0;
+  border-bottom: 1px grey solid;
+}
+
+.info-about > * {
+  padding: .3rem 0;
+}
+
+.info-health {
+  padding: 1.5rem 0;
+}
+
+.sponsor-div {
+  width: 30%;
+  height: fit-content;
+  margin: 1.4rem;
+  background-color: var(--main-bg-color);
+  border-radius: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0 1px 6px #4d4751;
+  color: white;
+}
+
+.sponsor-div-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.sponsor-div-btns > * {
+  width: 100%;
+  border: 0.15rem solid white;
+  background: transparent;
+  padding: .8rem 1.4rem;
+  border-radius: 1rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.sponsor-div-btns button:nth-child(1){
+  margin-bottom: 1.4rem;
+}
+
+.sponsor-div-shr {
+  display: flex;
+  border-top: 1px black solid;
+}
+
+.sponsor-div-shr > *{
+  width: 50%;
+  padding: 1.3rem;
+}
+
+.sponsor-div-shr div:nth-child(1){
+  border-right: 1px black solid;
 }
 
 
