@@ -122,8 +122,8 @@ const InfoBubble = ({ animal, isPending, error }) => {
                         <button>Sponsor {animal.name}</button>
                     </div>
                     <div className="sponsor-div-shr">
-                        <div><i class="fas fa-share"></i>Share</div>
-                        <div><i class="fas fa-print"></i>Print</div>
+                        <div><i className="fas fa-share"></i>Share</div>
+                        <div><i className="fas fa-print"></i>Print</div>
                     </div>
                 </div>        
             </div>

@@ -16,6 +16,7 @@ const client = new Client({
 });
 
 export const requestAnimals = (query) => (dispatch) => {
+    console.log(query)
     dispatch({ type: REQUEST_ANIMALS_PENDING });
     client.animal.search(query)
         .then(data => dispatch({ type: REQUEST_ANIMALS_SUCCESS, payload: data }))

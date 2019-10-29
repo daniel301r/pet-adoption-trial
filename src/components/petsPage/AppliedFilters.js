@@ -3,10 +3,10 @@ import React from 'react';
 const AppliedFilters = ({ filters, deleteFilterOptions, deleteAllFilters }) => {
     
     const capitalize = (s) => {
-        return s.charAt(0).toUpperCase() + s.slice(1)
+        return s.charAt(0).toUpperCase() + s.slice(1);
     }
 
-    const valueArray = Object.values(filters)
+    const valueArray = Object.values(filters);
     const check = (element) => {
         if (element.length > 0 || element === true){
             return element
@@ -18,6 +18,7 @@ const AppliedFilters = ({ filters, deleteFilterOptions, deleteAllFilters }) => {
     //         return (<li key={i}>{capitalize(listEl)}<i className="far fa-times-circle"></i></li>)
     //     })
     // }
+
     if(valueArray.some(check)){
         return (
             <div className="filter-bar">

@@ -25,7 +25,7 @@ class Filters extends Component {
     }
 
     render() {
-        const { addFilterOptions, makeRequestToAPI } = this.props;
+        const { addFilterOptions, makeRequestToAPI, breeds, colors } = this.props;
         return (
             // should really make these into small stateless components and pass in data
             <div className="filters-container">
@@ -35,17 +35,23 @@ class Filters extends Component {
                 </div>
                 <div className="filter-options-container">
                     <ul className={this.state.isExpanded && this.state.breed ? "filter-options-expanded" : "filter-options"}>
-                        {/* {species.map((specie, i) => {
+                        {breeds.map((el, i) => {
                             return (
                                 <li key={i}>
-                                    {specie}
+                                    {el}
                                     <div>
                                         <span>(0)</span>
-                                        <i className="fas fa-plus-circle"></i>
+                                        <i className="fas fa-plus-circle" 
+                                            onClick={() => {
+                                                    addFilterOptions('breed', el);
+                                                    makeRequestToAPI();
+                                                    }}>
+
+                                        </i>
                                     </div>
                                 </li>
                             )
-                        })} */}
+                        })}
                     </ul>
                 </div>
                 <div className="filter-container">
@@ -229,7 +235,27 @@ class Filters extends Component {
                 </div>
                 <div className="filter-container">
                     <div>Color</div>
-                    <button>Any<i className="fas fa-chevron-down"></i></button>
+                    <button onClick={this.toggleOptions}>Any<i className="fas fa-chevron-down" id="color"></i></button>
+                </div>
+                <div className="filter-options-container">
+                    <ul className={this.state.isExpanded && this.state.color ? "filter-options-expanded" : "filter-options"}>
+                        {colors.map((el, i) => {
+                            return (
+                                <li key={i}>
+                                    {el}
+                                    <div>
+                                        <span>(0)</span>
+                                        <i className="fas fa-plus-circle" 
+                                            onClick={() => {
+                                                        addFilterOptions('color', el);
+                                                        makeRequestToAPI();
+                                                        }}>
+                                        </i>
+                                    </div>
+                                </li>
+                            )
+                        })}
+                    </ul>
                 </div>
             </div>
         );

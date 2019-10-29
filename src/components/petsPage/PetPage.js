@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import { requestAnimals } from '../../actions/actions';
 
-import { capitaliseWords } from '../../constants';
-
 import InfoBar from './InfoBar';
 import FilterOptions from './FilterOptions';
 import Pets from './Pets';
@@ -171,40 +169,34 @@ class PetPage extends Component {
             }
         }
         // add request here
-        // this.props.onRequestAnimals(query);
+        this.props.onRequestAnimals(query);
     }
 
 
 
     render() {
-        const { isPending, error, otherData, animals } = this.props; // this should have animals from the store
+        const { isPending, error, otherData, animals } = this.props;
 
-        console.log(animals)
+        const removeNull = (arr) => {
+            const index = arr.findIndex(el => el === null);
+            arr.splice(index, 1);
+            return arr
+        }
 
-        // individual animal object includes 
-        
-        // breeds: { mixed: boolean, primary: string, secondary: string, unknown: boolean }
-        // const primaryBreed = animals.map(animal => animal.breeds.primary);
-        // const secondaryBreed = animals.map(animal => animal.breeds.secondary);
-        // const species = [...new Set([...primaryBreed, ...secondaryBreed])]
-        // console.log(species)
-        
+        const primaryBreed = animals.map(animal => animal.breeds.primary);
+        const secondaryBreed = animals.map(animal => animal.breeds.secondary);
+        const breedsArr = [...new Set([...primaryBreed, ...secondaryBreed])];
+
+        const primaryColors = animals.map(animal => animal.colors.primary);
+        const secondaryColors = animals.map(animal => animal.colors.secondary);
+        const tertiaryColors = animals.map(animal => animal.colors.tertiary);
+        const colorsArr = [...new Set([...primaryColors, ...secondaryColors, ...tertiaryColors])];
+
+
 
         // need to figure out the amount of male and female
         // const amountFemales = (animals.filter(animal => animal.gender === 'Female')).length;
         // console.log(amountFemales)
-
-        
-        // colors : { primary: string, secondary: string, tertiary: string }
-        // probably don't need to worry about this
-        // const primaryColors = animals.map(animal => animal.colors.primary)
-        // const secondaryColors = animals.map(animal => animal.colors.primary)
-        // const colors = [...new Set([...primaryColors, ...secondaryColors])]
-        // console.log('colors', colors)
-
-        // description: string
-        
-        // tags: [ string ] 
 
         // example of how to count the amount of properties in array using reduce, so would need
         // to put all of the properties in an array and then use this to count how many
@@ -217,13 +209,14 @@ class PetPage extends Component {
                     <FilterOptions 
                         addFilterOptions={this.addFilterOptions} 
                         makeRequestToAPI={this.makeRequestToAPI}
+                        breeds={removeNull(breedsArr)}
+                        colors={removeNull(colorsArr)}
                     />
                     <div className="animal-results-right">
                         <AppliedFilters 
                             filters={this.state} 
                             deleteFilterOptions={this.deleteFilterOptions}
                             deleteAllFilters={this.deleteAllFilters}
-                            makeRequestToAPI={this.makeRequestToAPI}
                         />
                         <Pets animals={animals} isPending={isPending} error={error} />
                     </div>

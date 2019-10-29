@@ -1,7 +1,5 @@
 import React from 'react';
 
-// make this so it appears and it fills the space but only shows things when data comes
-
 const InfoBar = ({ otherData, query }) => {
     
     const animalIcon = (animal) => {  
@@ -28,7 +26,6 @@ const InfoBar = ({ otherData, query }) => {
     }
 
     const text = (data, animal) => {
-        console.log(animal)
         const amount = data.headers["content-length"];
         const animalType = data.config.params.type;
         // refactor this

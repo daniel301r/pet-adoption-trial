@@ -7,8 +7,6 @@ const ImageGallery = ({ photos }) => {
     const lrgPhotos = photos && photos.map(img => {
         return img.large
     })
-    console.log('imagesL', lrgPhotos)
-
     
     // get photos in from here that are gonna be the images for the gallery
     if(!photos){
@@ -28,6 +26,7 @@ const ImageGallery = ({ photos }) => {
                         background:"black" 
                     }}
                     index={index}
+                    enableIndicators={false}
                     onRequestChange={i => {
                         setIndex(i);
                     }}

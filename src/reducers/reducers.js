@@ -39,7 +39,7 @@ export const searchAnimals = (state=searchAnimalsState, action) => {
         case REQUEST_ANIMALS_PENDING:
             return {...state, isPendingAnimals: true}
         case REQUEST_ANIMALS_SUCCESS:
-                
+                console.log('before filter',action.payload.data.animals);
             const filteredAnimals = action.payload.data.animals.reduce((finalList, animal) => {
                 const symbols = [".",",","(",")","&","!","%","*","-","#","?","/","1","2","3","4","5","6","7","8","9","0"] 
                 
@@ -51,7 +51,7 @@ export const searchAnimals = (state=searchAnimalsState, action) => {
         
                 return finalList;
             },[]);
-            console.log(filteredAnimals)
+            console.log('after filter',filteredAnimals)
 
             return {...state, animals: filteredAnimals, otherData: action.payload, isPendingAnimals: false}
         case REQUEST_ANIMALS_FAILED: 

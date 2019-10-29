@@ -41,7 +41,7 @@ ul {
   align-items: center;
   background-color: #fdfcfc;
   height: 13vh;
-  box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
 }
 
 .logo{
@@ -58,6 +58,7 @@ ul {
   align-items: center;
   text-transform: uppercase;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .species-menu-btn div:nth-child(1){
@@ -336,6 +337,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 1rem;
+  justify-items: center;
 }
 
 .pet-card {
@@ -347,8 +349,8 @@ ul {
   background-color: white;
   width: 220px;
   height: 350px;
-  /* doing this to see if it works */
   position: relative;
+  box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.75);
 }
 
 .pet-card .img-container {
@@ -512,13 +514,20 @@ ul {
   font-size: 1rem;
 }
 
+.sponsor-div-btns > *:hover{
+  background-color: white;
+  color: var(--main-txt-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .sponsor-div-btns button:nth-child(1){
   margin-bottom: 1.4rem;
 }
 
 .sponsor-div-shr {
   display: flex;
-  border-top: 1px black solid;
+  border-top: 2px black solid;
 }
 
 .sponsor-div-shr > *{
@@ -527,7 +536,7 @@ ul {
 }
 
 .sponsor-div-shr div:nth-child(1){
-  border-right: 1px black solid;
+  border-right: 2px black solid;
 }
 
 
