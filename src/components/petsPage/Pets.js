@@ -23,7 +23,6 @@ const Pets = ({ animals, isPending, error }) => {
                                 age={animal.age} 
                                 species={animal.species}
                                 img={animal.photos.length > 0 ? animal.photos[0].medium : 'No Image'}
-                                // need to standardise the image
                             />
                 })}
             </div>

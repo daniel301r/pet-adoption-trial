@@ -9,16 +9,13 @@ import {
     capitaliseWords
 } from '../constants';
 
-const initState = {
-    
+// use this for when the back end is added
+const init = {
+
 }
 
-export const initReducer = (state=initState, action) => {
-    switch(action.type){
-
-        default:
-            return state;
-    }
+export const initState = (state=init, action) => {
+    
 }
 
 const searchAnimalsState = {
@@ -39,7 +36,7 @@ export const searchAnimals = (state=searchAnimalsState, action) => {
         case REQUEST_ANIMALS_PENDING:
             return {...state, isPendingAnimals: true}
         case REQUEST_ANIMALS_SUCCESS:
-                console.log('before filter',action.payload.data.animals);
+            
             const filteredAnimals = action.payload.data.animals.reduce((finalList, animal) => {
                 const symbols = [".",",","(",")","&","!","%","*","-","#","?","/","1","2","3","4","5","6","7","8","9","0"] 
                 
@@ -51,7 +48,6 @@ export const searchAnimals = (state=searchAnimalsState, action) => {
         
                 return finalList;
             },[]);
-            console.log('after filter',filteredAnimals)
 
             return {...state, animals: filteredAnimals, otherData: action.payload, isPendingAnimals: false}
         case REQUEST_ANIMALS_FAILED: 

@@ -58,15 +58,12 @@ class PetPage extends Component {
                 break;
             case 'good_with_children':
                 this.setState({ good_with_children: true })
-                console.log(this.state.good_with_children)
                 break;
             case 'good_with_dogs':
                 this.setState({ good_with_dogs: true })
-                console.log(this.state.good_with_dogs)
                 break;
             case 'good_with_cats':
                 this.setState({ good_with_cats: true })
-                console.log(this.state.good_with_cats)
                 break;
             case 'coat':
                 const coatsArr = newArr(option, this.state.coats);
@@ -91,7 +88,6 @@ class PetPage extends Component {
             return arr.filter(el => el !== option)
         }
 
-        console.log(filter, option)
         switch(filter){
             case 'age':
                 const agesArr = newArr(option, this.state.ages)
@@ -116,6 +112,15 @@ class PetPage extends Component {
                 this.setState({
                     genders : gendersArr
                 })
+                break;
+            case 'good_with_children':
+                this.setState({ good_with_children: false })
+                break;
+            case 'good_with_dogs':
+                this.setState({ good_with_dogs: false })
+                break;
+            case 'good_with_cats':
+                this.setState({ good_with_cats: false })
                 break;
             case 'coat':
                 const coatsArr = newArr(option, this.state.coats)
@@ -148,13 +153,12 @@ class PetPage extends Component {
         })
     }
 
-    // when state is updated make the next update lifecycle methods
     makeRequestToAPI = () => {
         let query = {}
         
         query.type = this.props.animalQuery;
 
-        // take this out later if needed
+        // take query limit out later if needed
         query.limit = 100;
         const allFilters = Object.entries(this.state)
         
@@ -163,12 +167,11 @@ class PetPage extends Component {
                 query[filterOption] = true
             } else if(!filterOption.startsWith('good') && filter.length > 0){
                 // instead of changing the filterOption could change name in state
-                // but then have to change all the names on the page and also in applied filters
+                // but then have to change all the filter names on this component and also in applied filters
                 const property = filterOption.slice(0, -1);
                 query[property] = filter.toString() 
             }
         }
-        // add request here
         this.props.onRequestAnimals(query);
     }
 
@@ -192,16 +195,6 @@ class PetPage extends Component {
         const tertiaryColors = animals.map(animal => animal.colors.tertiary);
         const colorsArr = [...new Set([...primaryColors, ...secondaryColors, ...tertiaryColors])];
 
-
-
-        // need to figure out the amount of male and female
-        // const amountFemales = (animals.filter(animal => animal.gender === 'Female')).length;
-        // console.log(amountFemales)
-
-        // example of how to count the amount of properties in array using reduce, so would need
-        // to put all of the properties in an array and then use this to count how many
-        // - https://www.freecodecamp.org/news/check-out-these-useful-ecmascript-2015-es6-tips-and-tricks-6db105590377/
-
         return (
             <div>
                 {animals.length > 0 ? <InfoBar otherData={otherData} query={this.props.animalQuery}/> : ''}
@@ -217,6 +210,7 @@ class PetPage extends Component {
                             filters={this.state} 
                             deleteFilterOptions={this.deleteFilterOptions}
                             deleteAllFilters={this.deleteAllFilters}
+                            makeRequestToAPI={this.makeRequestToAPI}
                         />
                         <Pets animals={animals} isPending={isPending} error={error} />
                     </div>

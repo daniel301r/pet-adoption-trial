@@ -8,17 +8,12 @@ const ImageGallery = ({ photos }) => {
         return img.large
     })
     
-    // get photos in from here that are gonna be the images for the gallery
     if(!photos){
         return (
             <div>Waiting for photos</div>
         )
     } else {
         return (
-
-                // <div>
-        
-                // </div>
                 <Gallery
                     style={{
                         height:"400px",

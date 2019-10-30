@@ -28,6 +28,7 @@ class Filters extends Component {
         const { addFilterOptions, makeRequestToAPI, breeds, colors } = this.props;
         return (
             // should really make these into small stateless components and pass in data
+            // pass in the name of the filter and then the options
             <div className="filters-container">
                 <div className="filter-container">
                     <div>Breed</div>
@@ -113,28 +114,32 @@ class Filters extends Component {
                             Small
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('size', 'small')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('size', 'small'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Medium
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('size', 'medium')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('size', 'medium');makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Large
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('size', 'large')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('size', 'large'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             XL
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('size', 'xlarge')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('size', 'xlarge'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                     </ul>
@@ -149,14 +154,16 @@ class Filters extends Component {
                             Male
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('gender', 'male')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('gender', 'male'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Female
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('gender', 'female')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('gender', 'female'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                     </ul>
@@ -171,21 +178,24 @@ class Filters extends Component {
                             Kids
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('good_with_children', true)}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('good_with_children', true); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Dogs
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('good_with_dogs', true)}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('good_with_dogs', true); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Cats
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('good_with_cats', true)}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('good_with_cats', true); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                     </ul>
@@ -200,35 +210,40 @@ class Filters extends Component {
                             Hairless
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'hairless')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('coat', 'hairless'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Short
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'short')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('coat', 'short'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Medium
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'medium')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('coat', 'medium'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Long
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'long')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('coat', 'long'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                         <li>
                             Curly
                             <div>
                                 <span>(0)</span>
-                                <i className="fas fa-plus-circle" onClick={() => addFilterOptions('coat', 'curly')}></i>
+                                <i className="fas fa-plus-circle" onClick={() => 
+                                    {addFilterOptions('coat', 'curly'); makeRequestToAPI();}}></i>
                             </div>
                         </li>
                     </ul>

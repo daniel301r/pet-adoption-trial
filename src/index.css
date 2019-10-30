@@ -162,7 +162,6 @@ ul {
   background-color: var(--main-bg-color);
   height: 100%;
   width: 100%;
-  /* why is this not contained within .quick-search-container */
   border-radius: 1rem 0 0 1rem;
 }
 
@@ -173,7 +172,6 @@ ul {
   width: 0;
   height: 0;
   border-style: solid;
-  /* can I change this to make it repsonsive? */
   border-width: 50px 0 50px 10px;
   border-color: transparent transparent transparent var(--main-bg-color);
   z-index: 2;
@@ -196,8 +194,6 @@ ul {
 .quick-search-container a i{
   margin-right: 0.5rem;
 }
-
-
 
 
 /* All Pet Page */
@@ -387,9 +383,6 @@ ul {
   opacity: 0.3;
 }
 
-
-
-/* hacky way to do this */
 .img-container img{
   width: 100%;
   height: 100%;
@@ -436,6 +429,10 @@ ul {
   padding: 1rem;
   background-color: var(--main-bg-color);
   color: white;
+}
+
+.select-bar div{
+  cursor: pointer;
 }
 
 .select-bar div:first-child i{
@@ -528,6 +525,10 @@ ul {
 .sponsor-div-shr {
   display: flex;
   border-top: 2px black solid;
+}
+
+.sponsor-div-shr i {
+  margin-right: .5rem;
 }
 
 .sponsor-div-shr > *{

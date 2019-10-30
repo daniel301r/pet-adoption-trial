@@ -5,7 +5,6 @@ const InfoBubble = ({ animal, isPending, error }) => {
 
     const attributes = (obj) => {
         let finalString ='';
-        // I removed === true from conditions because
         if (obj.declawed){
             finalString += 'Declawed, '
         } 
@@ -92,11 +91,9 @@ const InfoBubble = ({ animal, isPending, error }) => {
                         <h1>{animal.name}</h1>
                         <div>{animal.breeds && breeds(animal.breeds)}</div>
                     </div>
-                    {/* make colors it's own line and add 'Gender:' to all the options to make it clear */}
                     <div className="info-mix">{animal.age} / {animal.gender} / {animal.size} / {animal.colors && colors()}</div>
                     <div className="info-about">
                         <h2>About</h2>
-                        {/* could add these into divs and align them better */}
                         <div>
                             <h4>Coat Length</h4>
                             <div>{animal.coat}</div>

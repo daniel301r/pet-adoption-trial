@@ -48,13 +48,20 @@ const InfoBar = ({ otherData, query }) => {
                 return `${amount} ${animalType} Animals Found`
         }
     }
-
-    return (
-        <div className="info-bar">
-            <div>{animalIcon(query)}</div>
-            <div>{text(otherData, query)}</div>
-        </div>
-    );
+    if(!query) {
+        return (
+            <div className="info-bar">
+                <div>You have not selected a species...</div>
+            </div>
+        )
+    } else {
+        return (
+            <div className="info-bar">
+                <div>{animalIcon(query)}</div>
+                <div>{text(otherData, query)}</div>
+            </div>
+        );
+    }
 };
 
 export default InfoBar;
